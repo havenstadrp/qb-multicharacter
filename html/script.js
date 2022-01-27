@@ -207,10 +207,10 @@ $(document).on('click', '#create', function (e) {
         return false;
     }
 
-    if(regTest.test(firstname) || regTest.test(lastname)){
-        console.log("ERROR: You used a derogatory/vulgar term. Please try again!")
-        return false;
-    }
+    // if(regTest.test(firstname) || regTest.test(lastname)){
+    //     console.log("ERROR: You used a derogatory/vulgar term. Please try again!")
+    //     return false;
+    // }
 
     $.post('https://qb-multicharacter/createNewCharacter', JSON.stringify({
         firstname: firstname,
