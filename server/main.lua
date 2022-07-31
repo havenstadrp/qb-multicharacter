@@ -93,7 +93,7 @@ RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
     newData.cid = data.cid
     newData.charinfo = data
     if QBCore.Player.Login(src, false, newData) then
-        if Config.StartingApartment then
+        if Apartments.Starting then
             local randbucket = (GetPlayerPed(src) .. math.random(1,999))
             SetPlayerRoutingBucket(src, randbucket)
             print('^2[qb-core]^7 '..GetPlayerName(src)..' has succesfully loaded!')
@@ -115,6 +115,7 @@ end)
 RegisterNetEvent('qb-multicharacter:server:deleteCharacter', function(citizenid)
     local src = source
     QBCore.Player.DeleteCharacter(src, citizenid)
+    TriggerClientEvent('QBCore:Notify', src, "Character deleted!" , "success")
 end)
 
 -- Callbacks
